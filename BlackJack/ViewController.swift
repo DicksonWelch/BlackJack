@@ -9,9 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+//    
+//    lazy var animator: PlayingCardBehavior = {
+//        return PlayingCardBehavior()
+//    }()
+  
+    lazy var animator:UIDynamicAnimator = {
+        return UIDynamicAnimator(referenceView: self.view)
+    }()
+    
+    var physicsEngine = PlayingCardBehavior()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animator.addBehavior(physicsEngine)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
